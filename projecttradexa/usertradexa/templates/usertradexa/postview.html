@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.header-bar {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);
+        }
+body{
+            
+            background-color: #F0FFFF;
+            font-family: 'Nunito', sans-serif;
+            padding-top: 50px;
+        }
+#container{
+            max-width:650px;
+           
+            margin-left: 40px;
+            padding: auto;
+            position: relative;
+            background-color: #fff;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+
+        }
+h1,
+h2,
+        h3,
+        h4,
+        h5,
+        h6  {
+            font-family: 'Raleway', sans-serif,
+            
+        }
+</style>
+</head>
+<title>ViewPage</title>
+<body>
+
+<div class="row">
+  <div class="column"  id='container' style="margin-right: auto;">
+    <table>
+        <div class='header-bar'><h2>Products</h2>
+
+                
+        </div>
+      <tr>
+        <th>Product</th>
+                <th>Weight</th>
+                <th>Price</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+      </tr>
+      {% for products in product %}
+                <tr>
+                    <td>{{products.name}}</td>
+                    <td>{{products.weight}}</td>
+                    <td>{{products.price}}</td>
+                    <td>{{products.created_at}}</td>
+                    <td>{{products.updated_at}}</td>
+                </tr>
+            {% endfor %}
+        
+      </tr>
+    </table>
+  </div>
+ 
+  <div class="column" id='container'>
+    <table>
+        <div class='header-bar'><h2>Posts</h2>
+        <tr>
+            <th>User</th>
+                    <th>Text</th>
+                    
+                    <th>Created at</th>
+                    <th>Updated at</th>
+          </tr>
+          {% for posts in post %}
+                    <tr>
+                        <td>{{posts.user}}</td>
+                        <td>{{posts.text}}</td>
+                        
+                        <td>{{posts.created_at}}</td>
+                        <td>{{posts.updated_at}}</td>
+                    </tr>
+                {% endfor %}
+            
+          </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
